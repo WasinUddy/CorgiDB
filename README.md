@@ -92,3 +92,7 @@ this is the class mentioned above that generate from **get_table() and create_ta
 
 
 This document is incomplete
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8b6f01b84ba6f497468754cb0d03cf1955b135b9
