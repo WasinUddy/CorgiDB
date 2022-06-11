@@ -8,7 +8,7 @@ setup(
   author = 'Wasin Silakong',                   # Type in your name
   author_email = 'wasin.silakong@gmail.com',      # Type in your E-Mail
   url = 'https://github.com/WasinUddy/CorgiDB',   # Provide either the link to your github or to your website
-  download_url = 'https://github.com/WasinUddy/CorgiDB/archive/refs/tags/v0.2.0-alpha.tar.gz',    # I explain this later on
+  download_url = 'https://github.com/WasinUddy/CorgiDB/archive/refs/tags/v0.1.2-alpha.tar.gz',    # I explain this later on
   keywords = ['sql python', 'python database', 'SQL', 'python sqlite'],   # Keywords that define your package best
   install_requires=[],
   classifiers=[
