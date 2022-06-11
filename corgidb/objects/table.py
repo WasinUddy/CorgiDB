@@ -40,10 +40,16 @@ class Table:
 
         cols = list(self.cols().keys())
         data = {c: [] for c in cols}
-
-        for row in self.__sqlcmd(f"SELECT * FROM {self.name} WHERE {condition.sqlout}"):
-            for i, d in row:
-                data[cols[i]].append(d)
+        print(data)
+        
+        if condition.sqlout != "":
+            for row in self.__sqlcmd(f"SELECT * FROM {self.name} WHERE {condition.sqlout}"):
+                for i, d in enumerate(row[1:]):
+                    data[cols[i]].append(d)
+        else:
+            for row in self.__sqlcmd(f"SELECT * FROM {self.name}"):
+                for i, d in enumerate(row[1:]):
+                    data[cols[i]].append(d)
         
         return data
 
