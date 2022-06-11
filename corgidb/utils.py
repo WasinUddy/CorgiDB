@@ -63,7 +63,7 @@ class Utils:
             sql += f"{column[0]} {SQLDATATYPE[column[1]]},"
         sql = sql[0:-1] + ");"
         
-        print(sql)
+   
         with self.connection:
             self.cursor.execute(sql)
 
@@ -74,7 +74,7 @@ class Utils:
         """
         Delete table on database
 
-        Parameters
+        Parameters:
             name        (str)   : Name of the Table that you wish to be delete
             keep_table  (bool)  : Delete only data of the table
         """
@@ -83,6 +83,17 @@ class Utils:
         else:
             self.sqlcmd(f"DROP TABLE {name};")
 
+    def get_table(self, name: str):
+        """
+        Create table objects from already exists table on database
+
+        Parameters:
+            name    (str) : Name of already exist table
+
+        Returns:
+            Table         : class table object
+        """
+        return Table(name=name, connection=self.connection)
 
 
     def __check_create_table(self, name: str, columns: list):
