@@ -82,3 +82,14 @@ tb = cdb.utils.get_table(name="Personnel")
 <h2>Table module</h2>
 
 this is the class mentioned above that generate from **get_table() and create_table()** method
+
+
+**Methods**
+- insert
+- update
+- remove
+- get
+
+
+This document is incomplete but I am too lazy to finished it Haiyaa I am an engineer not a writer and 99% won't even read it engineering speaking this is a waste of time
+
