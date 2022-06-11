@@ -17,6 +17,9 @@ class Condition:
         """
         self.__conditions = conditions
         self.__logic      = logic
+
+        if len(conditions) == 1:
+            logic=""
         
         if conditions!=[]:
             self.sqlout    = self.__sqlize()
@@ -33,7 +36,7 @@ class Condition:
             sql += " "
             sql += self.__logic
             sql += ","
-        sql = [0: -1]
+        sql = sql[0: -1]
         sql += ")"
         return sql
     
