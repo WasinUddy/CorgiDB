@@ -30,7 +30,10 @@ class Condition:
             if type(condition) == Condition:
                 condition = condition.sqlout    
             sql += condition
+            sql += " "
             sql += self.__logic
+            sql += ","
+        sql = [0: -1]
         sql += ")"
         return sql
     
