@@ -1,7 +1,7 @@
 
 
 # CorgiDB
-<img src="corgidb/CorgiDBlogo.png" alt="CorgiDB logo" style="height:300px; width:300px;" />
+<img src="https://github.com/WasinUddy/CorgiDB/blob/main/corgidb/CorgiDBlogo.png?raw=true" alt="CorgiDB logo" style="height:300px; width:300px;" />
 
 Write as short as Corgi's legs but and as fast as a Corgi
 
