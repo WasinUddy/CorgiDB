@@ -19,7 +19,7 @@ class Condition:
         self.__logic      = logic
 
         if len(conditions) == 1:
-            logic=""
+            self.__logic=""
         
         if conditions!=[]:
             self.sqlout    = self.__sqlize()
