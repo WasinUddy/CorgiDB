@@ -1,6 +1,6 @@
 import sqlite3
 
-from corgidb.table import Table
+from corgidb.objects.table import Table
 from corgidb.constants import *
 from corgidb.exceptions import *
 

@@ -2,6 +2,7 @@ import sqlite3
 
 from corgidb.constants import *
 from corgidb.exceptions import *
+from corgidb.objects.condition import Condition
 
 class Table:
     """
@@ -25,6 +26,26 @@ class Table:
         self.connection = connection
         self.cursor     = self.connection.cursor()
     
+    def get(self, condition: Condition):
+        """
+        This function query data from a table
+
+        Attributes:
+            condition (Condition) : Condition of the data that will be selected
+
+        Return:
+            dict    : dataframe like dictionary
+        """
+        
+
+        cols = list(self.cols().keys())
+        data = {c: [] for c in cols}
+
+        for row in self.__sqlcmd(f"SELECT * FROM {self.name} WHERE {condition.sqlout}"):
+            for i, d in row:
+                data[cols[i]].append(d)
+        
+        return data
 
     def insert(self, data: dict):
         """
@@ -45,7 +66,40 @@ class Table:
 
         self.__sqlcmd(f"INSERT INTO {self.name} {table_cols} VALUES {insert_data};")
     
-    
+    def update(self, data:dict, condition: Condition):
+        """
+        This function update information on Table
+
+        Parameters:
+            data (dict) : data to be updated
+            condition (Condition) : condition created using corgidb.sqlobjects to applied which row to be update
+        """
+        cols       = self.cols()
+        table_cols = set(cols.keys())
+        
+        # DataKey mismatch
+        if set(data.keys())!=table_cols:
+            raise InsertdatakeyMismatchError(set(data.keys), table_cols)
+
+        table_cols = tuple(table_cols)
+        update_data = tuple([cols[col](data[col]) for col in table_cols])
+
+        sql = ""
+        for i,c in enumerate(table_cols):
+            sql += f"{c} = {update_data[i]},"
+        sql = sql[0:-1]
+
+        self.__sqlcmd(f"UPDATE {self.name} SET {sql} WHERE {condition.sqlout};")
+
+    def remove(self, condition: Condition):
+        """
+        This function delete information on Table
+
+        Parameters:
+            condition (Condition) : Condition created using corgidb.sqlobject to select row to be delete
+        """
+        self.__sqlcmd(f"DELETE FROM {self.name} WHERE {condition.sqlout};")
+
     def cols(self, dtype: str='Python', withid: bool=False) -> dict:
         """
         This function get the informations of Table Columns
@@ -88,8 +142,6 @@ class Table:
             self.sqlcmd(f"TRUNCATE TABLE {self.name};")
         else:
             self.sqlcmd(f"DROP TABLE {self.name};")
-
-
 
     def __sqlcmd(self, command: str, raw=True):
         """

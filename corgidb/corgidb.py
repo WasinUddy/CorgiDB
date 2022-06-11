@@ -1,5 +1,5 @@
 import sqlite3
-from corgidb.table import Table
+from corgidb.objects.table import Table
 from corgidb.utils import Utils
 class CorgiDB:
     """
