@@ -1,4 +1,8 @@
+
+
 # CorgiDB
+<img src="corgidb/CorgiDBlogo.png" alt="CorgiDB logo" style="height:300px; width:300px;" />
+
 Write as short as Corgi's legs but and as fast as a Corgi
 
 CorgiDB is a wrapper of python3's sqlite3 package
@@ -92,7 +96,3 @@ this is the class mentioned above that generate from **get_table() and create_ta
 
 
 This document is incomplete
-<<<<<<< HEAD
-=======
-
->>>>>>> 8b6f01b84ba6f497468754cb0d03cf1955b135b9
