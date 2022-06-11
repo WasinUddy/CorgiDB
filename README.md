@@ -1,5 +1,5 @@
 # CorgiDB
-Write as short as Corgi's legs but and as fast as a Corgi
+Code as short as Corgi's legs but and as fast as a Corgi
 
 CorgiDB is a wrapper of python3's sqlite3 package
 
