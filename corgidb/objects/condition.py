@@ -18,13 +18,17 @@ class Condition:
         self.__conditions = conditions
         self.__logic      = logic
 
-        if len(conditions) == 1:
+        if conditions==None:
+            self.__conditions = []
+            conditions = []
+
+        if len(conditions) == 1 or conditions==[]:
             self.__logic=""
         
         if conditions!=[]:
             self.sqlout    = self.__sqlize()
         if conditions==[]:
-            self.sqlout    = ""
+            self.sqlout    = "True"
 
 
     def __sqlize(self):

@@ -26,7 +26,7 @@ class Table:
         self.connection = connection
         self.cursor     = self.connection.cursor()
     
-    def get(self, condition: Condition):
+    def get(self, condition: Condition=None):
         """
         This function query data from a table
 
@@ -37,10 +37,12 @@ class Table:
             dict    : dataframe like dictionary
         """
         
+        if condition==None:
+            condition = Condition(["True"], "AND")
 
         cols = list(self.cols().keys())
         data = {c: [] for c in cols}
-        print(data)
+    
         
         if condition.sqlout != "":
             for row in self.__sqlcmd(f"SELECT * FROM {self.name} WHERE {condition.sqlout}"):
@@ -72,7 +74,7 @@ class Table:
 
         self.__sqlcmd(f"INSERT INTO {self.name} {table_cols} VALUES {insert_data};")
     
-    def update(self, data:dict, condition: Condition):
+    def update(self, data:dict, condition: Condition=None):
         """
         This function update information on Table
 
@@ -80,6 +82,9 @@ class Table:
             data (dict) : data to be updated
             condition (Condition) : condition created using corgidb.sqlobjects to applied which row to be update
         """
+        if condition==None:
+            condition = Condition(["True"], "AND")
+
         cols       = self.cols()
         table_cols = set(cols.keys())
         
@@ -97,13 +102,16 @@ class Table:
 
         self.__sqlcmd(f"UPDATE {self.name} SET {sql} WHERE {condition.sqlout};")
 
-    def remove(self, condition: Condition):
+    def remove(self, condition: Condition=None):
         """
         This function delete information on Table
 
         Parameters:
             condition (Condition) : Condition created using corgidb.sqlobject to select row to be delete
         """
+        if condition==None:
+            condition = Condition(["True"], "AND")
+
         self.__sqlcmd(f"DELETE FROM {self.name} WHERE {condition.sqlout};")
 
     def cols(self, dtype: str='Python', withid: bool=False) -> dict:
