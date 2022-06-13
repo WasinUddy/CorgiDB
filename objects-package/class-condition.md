@@ -15,7 +15,7 @@ corgidb.objects.Condition(conditions: list, logic:str)
 
     logic between conditions can be `"AND" "OR"`
 
-Examples
+**Examples**
 
 ```python
 from corgidb.object import Condition
