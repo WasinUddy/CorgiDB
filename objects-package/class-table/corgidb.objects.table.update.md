@@ -4,6 +4,8 @@
 Table.update(data: dict, condition: Condition=None)
 ```
 
+Similar to insert but use to change the existing data
+
 **Parameters**
 
 1.  **data: dict**
