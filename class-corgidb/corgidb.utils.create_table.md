@@ -25,8 +25,8 @@ this method will create\_table on the connected database
 
     CorgiDB's Table object for us to manipulate the table after the creation
 
-{% content-ref url="../table.md" %}
-[table.md](../table.md)
+{% content-ref url="../objects-package/class-table/" %}
+[class-table](../objects-package/class-table/)
 {% endcontent-ref %}
 
 #### Notes

@@ -18,8 +18,8 @@ this method similar to `CorgiDB.utils.create_table` but instead of creating a ne
 
     CorgiDB's Table object for us to manipulate the table getting it
 
-{% content-ref url="../table.md" %}
-[table.md](../table.md)
+{% content-ref url="../objects-package/class-table/" %}
+[class-table](../objects-package/class-table/)
 {% endcontent-ref %}
 
 **Examples**

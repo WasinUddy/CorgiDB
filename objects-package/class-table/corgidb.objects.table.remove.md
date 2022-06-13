@@ -1,0 +1,2 @@
+# corgidb.objects.Table.remove
+
