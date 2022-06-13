@@ -1,8 +1,10 @@
 
 
 # CorgiDB
+
 <img src="https://github.com/WasinUddy/CorgiDB/blob/main/corgidb/CorgiDBlogo.png?raw=true" alt="CorgiDB logo" style="height:300px; width:300px;" />
 
+Documentation
 https://wasin-silakong.gitbook.io/corgidb-docs/
 
 https://pypi.org/project/corgidb/
