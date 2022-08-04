@@ -153,9 +153,9 @@ class Table:
             keep_table  (bool)  : Delete only data of the table if this is False the object will be deleted as well
         """
         if keep_table:
-            self.sqlcmd(f"TRUNCATE TABLE {self.name};")
+            self.__sqlcmd(f"TRUNCATE TABLE {self.name};")
         else:
-            self.sqlcmd(f"DROP TABLE {self.name};")
+            self.__sqlcmd(f"DROP TABLE {self.name};")
 
     def __sqlcmd(self, command: str, raw=True):
         """
